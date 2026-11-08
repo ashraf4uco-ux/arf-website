@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ASHRAF / ARF | Advanced Research &amp; Future</title>
+<meta name="description" content="Personal portfolio of ASHRAF, creator of ARF (Advanced Research &amp; Future): author, website builder for businesses, and writer on finance and EMI.">
+<meta name="theme-color" content="#0a1633">
+<meta name="color-scheme" content="light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASHRAF / ARF | Advanced Research &amp; Future">
+<meta property="og:description" content="Author, website builder and brand creator. Books, articles and websites for growing businesses.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230a1633'/%3E%3Cpath d='M18 46L32 14l14 32M24 36h16' fill='none' stroke='%23f5b83d' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ashraf","alternateName":"ARF","email":"mailto:iashraf.ltd@gmail.com","sameAs":["https://www.instagram.com/ashraf4uco/","https://www.facebook.com/ashraf4uco","https://x.com/ashraf4uco","https://www.youtube.com/@ashraf4uco"]}</script>
+<style>
+/* ==========  ARF  design tokens  ========== */
+:root{
+  --navy:#0a1633; --navy-2:#102250; --navy-3:#1a3270;
+  --gold:#f5b83d; --amber:#e8a317; --amber-ink:#8a5a00;
+  --bg:#f5f7fb; --white:#fff; --ink:#0d1b3d; --muted:#51607f; --line:#dde3ef;
+  --r:16px; --ease:cubic-bezier(.22,.7,.2,1);
+  --font:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --head:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--head) + 8px)}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--gold);color:var(--navy);padding:8px 14px;border-radius:10px;z-index:100;font-weight:700}
+.skip:focus{top:10px}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+h1,h2,h3{line-height:1.15;letter-spacing:-.01em;color:var(--navy)}
+h1{font-size:clamp(2rem,7vw,3.4rem);font-weight:800}
+h2{font-size:clamp(1.45rem,4.4vw,2.1rem);font-weight:800}
+h3{font-size:1.05rem;font-weight:700}
+p{color:var(--muted)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--amber-ink)}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--amber);border-radius:2px}
+.dark .eyebrow{color:var(--gold)} .dark h1,.dark h2,.dark h3{color:#fff} .dark p{color:#b9c4e0}
+
+/* ==========  buttons: compact, 44px touch hit-area  ========== */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;font-size:.88rem;font-weight:700;line-height:1;white-space:nowrap;transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s;-webkit-tap-highlight-color:transparent}
+.btn::after{content:"";position:absolute;inset:-4px -2px}
+.btn svg{width:16px;height:16px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--amber));color:var(--navy);box-shadow:0 6px 16px -6px rgba(232,163,23,.7)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 20px -6px rgba(232,163,23,.8)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{transform:translateY(-2px);background:var(--navy-2)}
+.btn-ghost{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+.dark .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.dark .btn-ghost:hover{background:#fff;color:var(--navy)}
+.btn:active{transform:scale(.97)}
+.btn[disabled],.btn.off{opacity:.55;pointer-events:none}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* ==========  header + menu overlay  ========== */
+header.top{position:fixed;inset:0 0 auto 0;height:var(--head);z-index:60;display:flex;align-items:center;background:rgba(245,247,251,.82);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(13,27,61,.06);transition:background .3s,border-color .3s}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:inline-flex;align-items:center;gap:9px;font-weight:900;letter-spacing:.2em;font-size:1.05rem;color:var(--navy);min-height:44px}
+.logo i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--navy);box-shadow:0 4px 12px -4px rgba(10,22,51,.6)}
+.logo i svg{width:18px;height:18px}
+.burger{position:relative;width:44px;height:44px;border-radius:12px;display:grid;place-items:center}
+.burger span{position:absolute;left:12px;width:20px;height:2px;border-radius:2px;background:var(--navy);transition:transform .35s var(--ease),opacity .2s,background .3s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:21px;width:14px;left:18px}.burger span:nth-child(3){top:26px}
+body.menu-open .burger span{background:#fff}
+body.menu-open .burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+body.menu-open header.top{background:transparent;border-color:transparent}
+body.menu-open .logo{color:#fff} body.menu-open .logo i{background:rgba(255,255,255,.12)}
+#menu{position:fixed;inset:0;z-index:55;background:radial-gradient(120% 80% at 80% 0%,#1a3270 0%,#0a1633 60%);display:flex;flex-direction:column;justify-content:center;padding:calc(var(--head) + 10px) 28px 28px;opacity:0;visibility:hidden;transform:scale(1.03);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+body.menu-open #menu{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+#menu .inner{width:min(520px,100%);margin-inline:auto}
+#menu ul{list-style:none}
+#menu li{opacity:0;transform:translateY(14px);transition:opacity .4s var(--ease),transform .5s var(--ease)}
+body.menu-open #menu li{opacity:1;transform:none}
+#menu li:nth-child(1){transition-delay:.06s}#menu li:nth-child(2){transition-delay:.1s}#menu li:nth-child(3){transition-delay:.14s}#menu li:nth-child(4){transition-delay:.18s}#menu li:nth-child(5){transition-delay:.22s}#menu li:nth-child(6){transition-delay:.26s}
+#menu a{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:6px 4px;font-size:clamp(1.25rem,5vw,1.6rem);font-weight:700;color:#fff;border-bottom:1px solid rgba(255,255,255,.1);transition:color .2s,padding .3s var(--ease)}
+#menu a small{font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:.14em}
+#menu a:hover,#menu a[aria-current=page]{color:var(--gold);padding-left:10px}
+#menu a svg{width:18px;height:18px;color:var(--gold)}
+#menu .note{margin-top:22px;font-size:.78rem;color:#8fa0c8}
+.orb-menu{position:absolute;right:-60px;bottom:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffd77a,#e8a317 55%,transparent 72%);opacity:.22;pointer-events:none}
+
+/* ==========  3D / anti-gravity primitives  ========== */
+.stage{perspective:1000px}
+.float{position:absolute;pointer-events:none;will-change:transform}
+.float>i{display:block;width:100%;height:100%;animation:bob var(--d,7s) ease-in-out infinite;animation-delay:var(--dl,0s);will-change:transform}
+@keyframes bob{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-16px,0) rotate(4deg)}}
+.o-gold{border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffe3a0,#f5b83d 45%,#c98505 100%);box-shadow:0 18px 30px -12px rgba(232,163,23,.65)}
+.o-gold>i{border-radius:50%}
+.o-navy{border-radius:50%;background:radial-gradient(circle at 32% 28%,#4466b8,#102250 60%,#0a1633);box-shadow:0 20px 34px -14px rgba(10,22,51,.7)}
+.o-navy>i{border-radius:50%}
+.o-ring{border-radius:50%;border:2px solid rgba(232,163,23,.7)}
+.o-ring>i{border-radius:50%}
+.o-glass{border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.7);box-shadow:0 20px 40px -20px rgba(10,22,51,.4);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.o-glass>i{border-radius:18px}
+.rv{opacity:0;transform:translate3d(0,22px,0);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+[data-tilt]{transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform}
+.glass{position:relative;border-radius:var(--r);background:linear-gradient(150deg,rgba(26,50,112,.85),rgba(10,22,51,.92));border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 44px -24px rgba(10,22,51,.8),inset 0 1px 0 rgba(255,255,255,.12);color:#fff}
+.glass p{color:#b9c4e0}
+.glass h3,.glass h2{color:#fff}
+.card{position:relative;border-radius:var(--r);background:#fff;border:1px solid var(--line);box-shadow:0 18px 34px -24px rgba(10,22,51,.35)}
+
+/* ==========  sections  ========== */
+main{padding-top:var(--head);min-height:70vh;outline:0}
+.view{animation:fadein .45s var(--ease)}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+section{position:relative;padding:48px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:22px}
+.sec-head h2{margin-top:6px}
+.dark{background:linear-gradient(180deg,var(--navy) 0%,#0c1b42 100%);color:#fff;overflow:hidden}
+.tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:rgba(245,184,61,.16);color:var(--amber-ink)}
+.dark .tag,.glass .tag{background:rgba(245,184,61,.18);color:var(--gold)}
+.sample{display:inline-block;font-size:.6rem;font-weight:800;letter-spacing:.1em;padding:2px 7px;border-radius:6px;background:rgba(10,22,51,.07);color:var(--muted)}
+.dark .sample,.glass .sample{background:rgba(255,255,255,.1);color:#9fb0d9}
+
+/* hero */
+.hero{padding:26px 0 40px;overflow:hidden;background:radial-gradient(90% 60% at 85% 0%,rgba(245,184,61,.18),transparent 60%),radial-gradient(70% 50% at 0% 30%,rgba(26,50,112,.1),transparent 60%)}
+.hero .wrap{display:grid;gap:22px;position:relative}
+.hero-copy{position:relative;z-index:2}
+.hero-copy h1{margin:10px 0 8px}
+.hero-copy h1 em{font-style:normal;background:linear-gradient(120deg,var(--amber),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy p{max-width:44ch;margin-bottom:16px}
+.slider-box{position:relative;width:min(100%,360px);margin-inline:auto;z-index:2}
+.slider{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:var(--navy);box-shadow:0 36px 60px -30px rgba(10,22,51,.8),0 0 0 1px rgba(255,255,255,.4) inset;touch-action:pan-y;user-select:none;-webkit-user-select:none;outline-offset:4px;transform:translateZ(0)}
+.track{display:flex;height:100%;transition:transform .65s var(--ease);will-change:transform}
+.slider.dragging .track{transition:none}
+.slide{position:relative;flex:0 0 100%;height:100%}
+.slide svg,.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
+.slide .slot{position:absolute;top:12px;left:12px}
+.slider-over{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 16px;display:block;color:#fff;background:linear-gradient(to top,rgba(10,22,51,.55),rgba(10,22,51,0));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(to top,#000 62%,transparent);mask-image:linear-gradient(to top,#000 62%,transparent);z-index:3}
+.slider-over b{display:flex;align-items:center;gap:8px;font-size:1.25rem;letter-spacing:.06em;font-weight:900}
+.slider-over b svg{width:17px;height:17px;color:var(--gold)}
+.slider-over span{display:block;font-size:.84rem;color:#e7ecfa;margin-top:2px;padding-bottom:20px}
+.slider-over:hover b{color:var(--gold)}
+.sl-ctl{position:absolute;left:0;right:0;bottom:12px;z-index:4;display:flex;justify-content:center;align-items:center;gap:2px;pointer-events:none}
+.sl-ctl>*{pointer-events:auto}
+.dot{width:22px;height:22px;display:grid;place-items:center}
+.dot::before{content:"";width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.5);transition:width .3s var(--ease),background .3s}
+.dot[aria-current=true]::before{width:20px;border-radius:4px;background:var(--gold)}
+.pp{width:26px;height:26px;display:grid;place-items:center;margin-left:6px;color:#fff;opacity:.8;border-radius:50%}
+.pp svg{width:12px;height:12px}
+.arrow{position:absolute;top:50%;margin-top:-18px;width:36px;height:36px;border-radius:50%;display:none;place-items:center;z-index:4;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+.arrow:hover{background:rgba(255,255,255,.4);transform:scale(1.06)}
+.arrow svg{width:16px;height:16px}.arrow.l{left:10px}.arrow.r{right:10px}
+@media(hover:hover){.arrow{display:grid}}
+
+/* bio */
+.bio{padding:22px;border-radius:22px;background:#fff;border:1px solid var(--line);box-shadow:0 26px 40px -30px rgba(10,22,51,.4);position:relative;overflow:hidden}
+.bio::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(var(--gold),var(--amber))}
+.bio p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:8px 0 14px}
+.bio.open p{-webkit-line-clamp:unset;display:block}
+.bio .more{display:none;margin-top:-4px;margin-bottom:14px}
+.bio.open .more{display:block}
+.link-cards{display:grid;gap:14px;margin-top:18px}
+.lcard{display:block;padding:20px;min-height:150px}
+.lcard .ic{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--amber));color:var(--navy);margin-bottom:14px;transform:translateZ(30px)}
+.lcard .ic svg{width:22px;height:22px}
+.lcard h3{color:#fff;transform:translateZ(20px)}
+.lcard p{font-size:.9rem;margin:4px 0 12px}
+.lcard .go{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:700;color:var(--gold)}
+.lcard .go svg{width:14px;height:14px;transition:transform .25s var(--ease)}
+.lcard:hover .go svg{transform:translateX(4px)}
+
+/* books rail */
+.rail-wrap{position:relative}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:14px 16px 26px;margin:0 -16px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;perspective:1000px}
+.rail::-webkit-scrollbar{display:none}
+.rail{scroll-padding-inline:16px}
+.rail.grab{scroll-snap-type:none;cursor:grabbing;user-select:none}
+.book-card[data-tilt]{transform-style:flat}
+.book-card{flex:0 0 min(224px,70vw);scroll-snap-align:start;padding:18px 16px 16px;text-align:left}
+.book{position:relative;width:128px;height:178px;margin:6px auto 20px;transform-style:preserve-3d;transform:perspective(600px) rotateY(-24deg) rotateX(4deg);transition:transform .6s var(--ease)}
+.book-card:hover .book,.book-card:focus-within .book{transform:perspective(600px) rotateY(-6deg) rotateX(0) translateY(-6px)}
+.book .face{position:absolute;inset:0;border-radius:3px 8px 8px 3px;padding:14px 12px;display:flex;flex-direction:column;justify-content:flex-start;gap:8px;color:#fff;box-shadow:0 22px 24px -14px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.28);overflow:hidden}
+.book .face::before{content:"";position:absolute;left:0;top:0;bottom:0;width:9px;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.12))}
+.book .face::after{content:"";position:absolute;right:-26px;bottom:-26px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffe3a0,#f5b83d 55%,#c98505);opacity:.9}
+.book .t{font-weight:800;font-size:.92rem;line-height:1.15;position:relative;z-index:1;padding-left:6px}
+.book .a{font-size:.58rem;letter-spacing:.18em;font-weight:700;opacity:.85;position:relative;z-index:1;padding-left:6px}
+.book-card h3{color:#fff;font-size:.98rem}
+.book-card p{font-size:.82rem;margin:4px 0 12px}
+.rail-ctl{display:flex;gap:8px;align-items:center}
+.rbtn{position:relative;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.3);color:#fff;transition:background .2s,transform .2s}
+.rbtn::after{content:"";position:absolute;inset:-3px}
+.rbtn:hover{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.rbtn svg{width:16px;height:16px}
+.hint{font-size:.78rem;color:#8fa0c8;margin-top:-6px}
+
+/* blogs */
+.grid{display:grid;gap:14px}
+.post{display:flex;flex-direction:column;overflow:hidden;transition:box-shadow .3s}
+.post .thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--navy)}
+.post .thumb svg{width:100%;height:100%;transition:transform .8s var(--ease)}
+.post:hover .thumb svg{transform:scale(1.06)}
+.post .body{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.post .meta{display:flex;gap:8px;align-items:center;font-size:.74rem;color:var(--muted)}
+.post h3{font-size:1.02rem}
+.post p{font-size:.88rem}
+.post .go{margin-top:auto;padding-top:6px;font-weight:700;font-size:.84rem;color:var(--amber-ink);display:inline-flex;gap:6px;align-items:center}
+.post .go svg{width:14px;height:14px}
+
+/* generic pages */
+.page-hero{padding:40px 0 30px;position:relative;overflow:hidden}
+.page-hero h1{margin:10px 0 10px}
+.page-hero p{max-width:60ch}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:.84rem;font-weight:700;color:var(--muted);min-height:44px}
+.back svg{width:14px;height:14px;transform:rotate(180deg)}
+.two{display:grid;gap:22px}
+.prose{max-width:70ch}
+.prose h2{font-size:1.25rem;margin:28px 0 8px}
+.prose p,.prose li{margin-bottom:10px;color:#3d4c6e}
+.prose ul{padding-left:20px}
+.tile{padding:18px}
+.tile .ic{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:rgba(245,184,61,.2);color:var(--amber-ink);margin-bottom:10px}
+.tile .ic svg{width:20px;height:20px}
+.tile p{font-size:.9rem}
+.list{list-style:none;display:grid;gap:10px}
+.list li{display:flex;gap:10px;align-items:flex-start;color:#3d4c6e;font-size:.94rem}
+.list li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--amber))}
+.dark .list li{color:#c9d3ec}
+.mock{aspect-ratio:16/10;background:#e9eef8;border-bottom:1px solid var(--line);position:relative}
+.mock svg{width:100%;height:100%}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.dark .pill{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:#fff}
+.steps{counter-reset:s;display:grid;gap:12px}
+.steps .tile{padding-left:62px;position:relative}
+.steps .tile::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:16px;width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:var(--navy);color:var(--gold);font-weight:800}
+
+/* social */
+.soc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.soc a{display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:56px}
+.soc .i{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:rgba(245,184,61,.16);color:var(--gold)}
+.soc svg{width:19px;height:19px}
+.soc b{display:block;font-size:.88rem;color:#fff;overflow:hidden;text-overflow:ellipsis}.soc small{display:block;font-size:.72rem;color:#9fb0d9;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.soc a>span:last-child{min-width:0}
+
+/* forms */
+form{display:grid;gap:12px}
+label{font-size:.8rem;font-weight:700;color:var(--navy);display:grid;gap:5px}
+input,textarea,select{font:inherit;font-size:16px;width:100%;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
+input,select{height:44px}
+textarea{min-height:120px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:0;border-color:var(--amber);box-shadow:0 0 0 4px rgba(245,184,61,.25)}
+.status{font-size:.86rem;min-height:1.3em;font-weight:600}
+.status.err{color:#b3261e}.status.ok{color:#0d6b3a}
+.panel{padding:22px}
+.lockbadge{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--gold),var(--amber));color:var(--navy);margin-bottom:12px;box-shadow:0 12px 22px -10px rgba(232,163,23,.8)}
+.lockbadge svg{width:26px;height:26px}
+.notice{padding:12px 14px;border-radius:12px;background:#fff7e0;border:1px solid #f1d58a;color:#6a4a00;font-size:.86rem}
+
+/* footer */
+footer{background:var(--navy);color:#fff;padding:40px 0 28px;margin-top:0;position:relative;overflow:hidden}
+footer .logo{color:#fff}footer .logo i{background:rgba(255,255,255,.1)}
+footer p{color:#9fb0d9;font-size:.88rem;margin-top:6px}
+.fnav{display:flex;flex-wrap:wrap;gap:4px 18px;margin:18px 0}
+.fnav a{min-height:40px;display:inline-flex;align-items:center;font-size:.88rem;font-weight:600;color:#dfe6f8}
+.fnav a:hover{color:var(--gold)}
+.fsoc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.fsoc a{position:relative;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:#e7ecfa;transition:transform .25s var(--ease),background .2s,color .2s}
+.fsoc a::after{content:"";position:absolute;inset:-3px}
+.fsoc a:hover{background:var(--gold);color:var(--navy);transform:translateY(-3px)}
+.fsoc svg{width:18px;height:18px}
+.copy{border-top:1px solid rgba(255,255,255,.1);padding-top:16px;font-size:.8rem;color:#8fa0c8}
+
+/* ==========  breakpoints  ========== */
+@media(min-width:640px){
+  .link-cards{grid-template-columns:1fr 1fr}
+  .grid.g3{grid-template-columns:repeat(2,1fr)}
+  .soc{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .two{grid-template-columns:1fr 1fr}
+}
+@media(min-width:960px){
+  :root{--head:70px}
+  section{padding:72px 0}
+  .hero{padding:48px 0 70px}
+  .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center;gap:56px}
+  .hero-copy{order:1}.slider-box{order:2;margin-inline:0 auto;width:min(100%,400px)}
+  .grid.g3{grid-template-columns:repeat(3,1fr)}
+  .soc{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .book-card{flex-basis:230px}
+  .rail{margin:0 -16px}
+}
+@media(max-width:360px){.btn{padding:0 13px;font-size:.84rem}.logo{letter-spacing:.14em}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#/" aria-label="ASHRAF - home"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#f5b83d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L12 5l7 14M8.5 14h7"/></svg></i>ASHRAF</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav id="menu" aria-label="Main menu" aria-hidden="true">
+  <div class="orb-menu" aria-hidden="true"></div>
+  <div class="inner">
+    <ul id="menu-list"></ul>
+    <p class="note">ARF &middot; Advanced Research &amp; Future</p>
+  </div>
+</nav>
+
+<main id="app" tabindex="-1"></main>
+<footer id="foot"></footer>
+
+<script>
+/* =====================================================================
+   ARF PORTFOLIO  -  EDIT YOUR CONTENT HERE
+   Everything in this top block is sample content you can replace.
+   No build step: edit, save, upload.
+   ===================================================================== */
+
+/* >>> PHOTO SLOTS <<<  Put your own photo links here (3:4 portrait works best).
+   Example:  { src: "photos/ashraf-1.jpg", alt: "Ashraf portrait" }
+   Leave src as "" to keep the placeholder artwork for that slide. */
+const IMAGES = [
+  { src: "", alt: "Portrait of Ashraf (photo slot 1)" },
+  { src: "", alt: "Portrait of Ashraf (photo slot 2)" },
+  { src: "", alt: "Portrait of Ashraf (photo slot 3)" },
+  { src: "", alt: "Portrait of Ashraf (photo slot 4)" }
+];
+
+const SHOW_SAMPLE_TAGS = true;   // set false to hide the small "Sample" badges once real content is in
+const INSTAGRAM_MAIN = "https://www.instagram.com/ashraf4uco/";
+const EMAIL = "iashraf.ltd@gmail.com";
+const WHATSAPP = "919181176489";
+const ADMIN_EMAIL = "iashraf.ltd@gmail.com";
+const JAASPIRE_URL = "https://jaaspire.com/arf";   // not verified - edit if Jaaspire uses a different address
+
+const BIO_SHORT = "ASHRAF is the creator behind ARF, short for Advanced Research & Future. ARF brings careful research, clean design and forward-looking ideas to books, articles and websites for growing businesses.";
+const BIO_LONG = [
+  "ASHRAF is the creator behind ARF, short for Advanced Research & Future. The idea is simple: look closely, learn properly, and build for what comes next.",
+  "That mindset shapes everything under the ARF name: books that make money topics like finance and EMIs easier to understand, articles that explain things plainly, and websites that help businesses look sharp and be found online.",
+  "Whether you are a reader, a business owner or a fellow creator, you are welcome to connect, ask questions and start something together."
+];
+
+/* Sample titles - replace with the real books (title, topic, blurb, colours, link). */
+const BOOKS = [
+  { id:1, title:"EMI Made Simple", topic:"Finance / EMI", blurb:"A plain-language guide to how EMIs work, what they really cost, and how to plan them without stress.", c1:"#3a62d0", c2:"#14286a", link:"" },
+  { id:2, title:"Money in Motion", topic:"Personal Finance", blurb:"Everyday money habits explained step by step, from budgeting to saving for what matters.", c1:"#d99108", c2:"#6a3d00", link:"" },
+  { id:3, title:"The Debt-Smart Playbook", topic:"Loans & Credit", blurb:"How to compare loans, read the fine print and keep repayments comfortable.", c1:"#1d9aa8", c2:"#0b3d4a", link:"" },
+  { id:4, title:"Future Ledger", topic:"Research & Planning", blurb:"Using research thinking to make calmer, better-informed financial decisions.", c1:"#7d54cc", c2:"#2c1a5c", link:"" },
+  { id:5, title:"Build Your Online Presence", topic:"Business & Web", blurb:"A beginner's roadmap to getting a business website live and found.", c1:"#cc4560", c2:"#5a1224", link:"" }
+];
+
+/* Sample articles - replace title / date / text freely. */
+const BLOGS = [
+  { id:"how-emi-works", title:"How an EMI really works", tag:"Finance", date:"Sample date", read:"4 min", hue:0,
+    excerpt:"Principal, interest and tenure: the three levers behind every monthly instalment.",
+    body:["An EMI (equated monthly instalment) is a fixed amount you pay each month to clear a loan. Each payment covers part of the interest and part of the original amount borrowed.","Early in the loan, more of each payment goes towards interest. Over time the balance shifts towards the principal. Choosing a shorter tenure raises the monthly amount but lowers the total interest paid.","Before you commit, compare the total cost of the loan, not just the monthly figure. This is sample article text. Replace it with your own writing."] },
+  { id:"five-questions-website", title:"5 questions before you build a business website", tag:"Web", date:"Sample date", read:"3 min", hue:1,
+    excerpt:"Clear answers to these save time, money and rework later.",
+    body:["Who is the website for? What should a visitor do in the first ten seconds? What do you want them to remember? How will they contact you? How will you know it is working?","Answer these on paper first. A focused site with one clear goal beats a crowded one every time.","This is sample article text. Replace it with your own writing."] },
+  { id:"research-first", title:"Why research beats guesswork", tag:"Insights", date:"Sample date", read:"3 min", hue:2,
+    excerpt:"A small habit that makes every decision, big or small, a little easier.",
+    body:["Good decisions rarely come from a flash of inspiration. They come from asking better questions and checking the facts before acting.","Start small: write the decision down, list two or three options, and note what you would need to know to choose confidently.","This is sample article text. Replace it with your own writing."] },
+  { id:"budget-basics", title:"Budgeting basics that actually stick", tag:"Finance", date:"Sample date", read:"5 min", hue:1,
+    excerpt:"Simple, low-effort routines for keeping a clear view of your money.",
+    body:["A budget is just a plan for your money. The best one is the one you will actually keep using.","Try splitting income into needs, wants and savings, then review once a week for five minutes.","This is sample article text. Replace it with your own writing."] },
+  { id:"future-skills", title:"Future-ready skills worth learning now", tag:"Future", date:"Sample date", read:"4 min", hue:0,
+    excerpt:"Curiosity, clear writing and basic digital know-how go a long way.",
+    body:["Tools change quickly, but some skills last: learning how to learn, writing clearly, and understanding how digital products work.","Pick one skill, practise a little each day, and share what you learn.","This is sample article text. Replace it with your own writing."] },
+  { id:"speed-matters", title:"Why a fast website wins customers", tag:"Web", date:"Sample date", read:"3 min", hue:2,
+    excerpt:"Visitors leave slow pages. Here is how lightweight design helps.",
+    body:["People judge a website in seconds. Pages that load quickly feel trustworthy and are easier to use on mobile.","Keep images sized properly, avoid heavy libraries, and focus on a clear layout.","This is sample article text. Replace it with your own writing."] }
+];
+
+const SERVICES = [
+  { icon:"globe", t:"Business Websites", d:"Clean, fast, mobile-first sites that present your business clearly." },
+  { icon:"bolt",  t:"Landing Pages", d:"Single focused pages for a launch, offer or campaign." },
+  { icon:"user",  t:"Portfolio Sites", d:"A sharp personal or studio showcase for creators and professionals." },
+  { icon:"cart",  t:"Online Store Setup", d:"Simple storefronts so customers can browse and enquire or buy." },
+  { icon:"wrench",t:"Care & Updates", d:"Ongoing changes, fixes and small improvements after launch." },
+  { icon:"search",t:"Research-led Content", d:"Page copy and basic SEO guided by what your audience looks for." }
+];
+const STEPS = [
+  { t:"Discover", d:"We talk about your business, audience and goals." },
+  { t:"Plan", d:"Pages, content and timeline are agreed in writing." },
+  { t:"Design & Build", d:"You see progress and give feedback along the way." },
+  { t:"Launch & Support", d:"Go live, then get help with updates when you need it." }
+];
+/* Sample terms - edit to match your real working terms. */
+const WEB_TERMS = [
+  "Project scope, pages and deliverables are agreed in writing before work starts.",
+  "Pricing and payment schedule are shared as a quote after the discovery chat.",
+  "Text, logos and photos are supplied by the client unless agreed otherwise.",
+  "A set number of revision rounds is included; extra changes are quoted separately.",
+  "Domain and hosting accounts stay in the client's name.",
+  "Delivery dates depend on timely feedback and content from the client.",
+  "Third-party tools or paid plugins, if needed, are agreed before use."
+];
+const SALES_LOCATIONS = [
+  { t:"Online, worldwide", d:"Remote delivery by chat, call and email." },
+  { t:"Local meetings", d:"Add the cities or areas where you meet clients." },
+  { t:"On-site visits", d:"Available on request. Add details here." }
+];
+/* Portfolio - set url to a real live site to switch the card to a working link. */
+const PORTFOLIO = [
+  { name:"Sample Project One", kind:"Restaurant website", url:"", c:"#f5b83d" },
+  { name:"Sample Project Two", kind:"Consulting landing page", url:"", c:"#4f7be8" },
+  { name:"Sample Project Three", kind:"Online boutique", url:"", c:"#34b8a0" }
+];
+
+const SOCIALS = [
+  { id:"facebook",  name:"Facebook",  handle:"ashraf4uco", url:"https://www.facebook.com/ashraf4uco" },
+  { id:"instagram", name:"Instagram", handle:"ashraf4uco", url:"https://www.instagram.com/ashraf4uco/" },
+  { id:"instagram", name:"Instagram (arf.pochi)", handle:"arf.pochi", url:"https://www.instagram.com/arf.pochi/" },
+  { id:"x",         name:"X / Twitter", handle:"ashraf4uco", url:"https://x.com/ashraf4uco" },
+  { id:"tiktok",    name:"TikTok",    handle:"@ashraf4uco", url:"https://www.tiktok.com/@ashraf4uco" },
+  { id:"youtube",   name:"YouTube",   handle:"@ashraf4uco", url:"https://www.youtube.com/@ashraf4uco" },
+  { id:"threads",   name:"Threads",   handle:"@ashraf4uco", url:"https://www.threads.net/@ashraf4uco" },
+  { id:"pinterest", name:"Pinterest", handle:"ashraf4uco", url:"https://www.pinterest.com/ashraf4uco/" },
+  { id:"jaaspire",  name:"Jaaspire",  handle:"arf", url:JAASPIRE_URL },
+  { id:"snapchat",  name:"Snapchat",  handle:"ashraf4uco", url:"https://www.snapchat.com/add/ashraf4uco" },
+  { id:"pexels",    name:"Pexels",    handle:"ASHRAF-2163633523", url:"https://www.pexels.com/@ASHRAF-2163633523" },
+  { id:"email",     name:"Email",     handle:EMAIL, url:"mailto:"+EMAIL },
+  { id:"whatsapp",  name:"WhatsApp",  handle:"+91 91811 76489", url:"https://wa.me/"+WHATSAPP }
+];
+
+/* =====================================================================
+   Engine (you normally do not need to edit below this line)
+   ===================================================================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let cleanups = [];
+
+const P = {
+  facebook:'<path d="M14.2 8.6V7c0-.8.2-1.2 1.3-1.2H17V3.2h-2.3C12 3.2 10.700 4.700 10.700 7v1.600H8.800v2.800h1.900V20.800H14v-9.400h2.500l.4-2.800z" fill="currentColor" stroke="none"/>',
+  instagram:'<rect x="3.500" y="3.500" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.200" cy="6.800" r=".9" fill="currentColor" stroke="none"/>',
+  x:'<path d="M4.500 4l15 16M19.500 4l-6.200 7M10.700 13.200L4.500 20"/>',
+  tiktok:'<path d="M14.200 3.500v10.300a3.600 3.600 0 1 1-3.600-3.600M14.200 3.500c.3 2.400 1.800 4 4.300 4.200"/>',
+  youtube:'<rect x="2.500" y="5.500" width="19" height="13" rx="4"/><path d="M10 9.200v5.600l4.800-2.800z" fill="currentColor" stroke="none"/>',
+  threads:'<path d="M16.800 9.200C16.200 6.800 14.500 5.500 12 5.500c-3.200 0-5 2.400-5 6.500s1.800 6.500 5 6.500c2.800 0 4.500-1.500 4.500-3.500 0-2.100-1.800-3.200-4.200-3.200-1.600 0-2.700.7-2.700 1.800 0 1 .9 1.800 2.200 1.800 1.800 0 2.800-1.300 2.800-3.700V9.200"/>',
+  pinterest:'<circle cx="12" cy="12" r="9"/><path d="M10.200 20.300l1.800-7.500M8.800 12.200c-.9-2.400.6-5.200 3.400-5.200 2 0 3.200 1.300 3.200 3 0 2.200-1.200 3.800-2.900 3.800-.8 0-1.500-.5-1.700-1.200"/>',
+  jaaspire:'<rect x="3.500" y="3.500" width="17" height="17" rx="5"/><path d="M13.500 7.500v6.200a2.700 2.700 0 0 1-5.400 0"/>',
+  snapchat:'<path d="M12 3.500c-2.800 0-4.400 2.100-4.400 4.700v2.200l-2.100.7 2.100 1c-.4 1.200-1.400 2.200-2.800 2.700.9.700 1.900.8 2.900 1 .3.600.6 1.100 1.300 1.100 1 0 1.700-.8 3-.8s2 .8 3 .8c.7 0 1-.5 1.300-1.100 1-.2 2-.3 2.900-1-1.400-.5-2.400-1.500-2.800-2.700l2.100-1-2.100-.7V8.200c0-2.600-1.600-4.700-4.400-4.700z"/>',
+  pexels:'<rect x="3.500" y="3.500" width="17" height="17" rx="4"/><path d="M9.500 17V7.500h3a3 3 0 0 1 0 6h-3"/>',
+  email:'<rect x="3" y="5.500" width="18" height="13" rx="3"/><path d="M4 8l8 5.500L20 8"/>',
+  whatsapp:'<path d="M4 20l1.200-4.100A8.200 8.200 0 1 1 8.200 18.900L4 20z"/><path d="M9.300 8.800c-.3 3.500 2.800 6 5.700 6.100l1.200-1.500-2-1-.9.900c-.9-.4-1.700-1.200-2.100-2.200l.9-.9-1-2z" fill="currentColor" stroke="none"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  chev:'<path d="M9 5l7 7-7 7"/>',
+  lock:'<rect x="5" y="10.500" width="14" height="10" rx="3"/><path d="M8 10.500V8a4 4 0 0 1 8 0v2.500"/>',
+  book:'<path d="M5 4.500h10a3 3 0 0 1 3 3V20H8a3 3 0 0 1-3-3V4.500zM5 17a3 3 0 0 1 3-3h10"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+  bolt:'<path d="M13 3L5 13.500h6L10 21l8-10.500h-6z"/>',
+  user:'<circle cx="12" cy="8.500" r="3.800"/><path d="M4.500 20c.8-4 3.700-6 7.500-6s6.700 2 7.500 6"/>',
+  cart:'<path d="M3 4h2.500l2 11h10l2-8H7"/><circle cx="9" cy="19" r="1.300"/><circle cx="17" cy="19" r="1.300"/>',
+  wrench:'<path d="M14.500 6.500a4 4 0 0 0 4.800 4.800L9 21.500a2.200 2.200 0 0 1-3.100-3.100L16 8.200"/><path d="M14.500 6.500a4 4 0 0 1 5-3l-2.600 2.600.5 2 2 .5 2.600-2.600a4 4 0 0 1-3 5"/>',
+  search:'<circle cx="11" cy="11" r="6.500"/><path d="M16 16l4.500 4.500"/>',
+  pause:'<path d="M8 5v14M16 5v14" stroke-width="3"/>',
+  play:'<path d="M8 5l11 7-11 7z" fill="currentColor"/>',
+  pin:'<path d="M12 21s7-6.200 7-11.500a7 7 0 0 0-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/>',
+  doc:'<path d="M6 3.500h8l4 4V20.500H6z"/><path d="M14 3.500v4h4M9 12h6M9 16h6"/>',
+  spark:'<path d="M12 3l1.800 5.200L19 10l-5.200 1.800L12 17l-1.800-5.200L5 10l5.200-1.800z"/>'
+};
+const ic = (n, cls="") => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${cls?`class="${cls}"`:""}>${P[n]||""}</svg>`;
+const sample = () => SHOW_SAMPLE_TAGS ? '<span class="sample">SAMPLE</span>' : "";
+const wa = (txt="") => `https://wa.me/${WHATSAPP}${txt?`?text=${encodeURIComponent(txt)}`:""}`;
+
+/* ---------- routes ---------- */
+const NAV = [
+  { r:"/", label:"Home" },
+  { r:"/web-services", label:"Services / Businesses" },
+  { r:"/connect", label:"Connect with ARF" },
+  { r:"/about", label:"About Ashraf", tag:"PAGE" },
+  { r:"/contact", label:"Contact with Ashraf", tag:"PAGE" },
+  { r:"/admin", label:"Admin Access", icon:"lock" }
+];
+const META = {
+  "/": ["ASHRAF / ARF | Advanced Research & Future","Personal portfolio of ASHRAF, creator of ARF (Advanced Research & Future): author, website builder for businesses, and writer on finance and EMI."],
+  "/about": ["About Ashraf | ARF","The story and mindset behind ARF, Advanced Research & Future, created by Ashraf."],
+  "/contact": ["Contact Ashraf | ARF","Message Ashraf on WhatsApp or email about books, websites or collaborations."],
+  "/author": ["Author Profile & Books | ARF","Books and writing by Ashraf, including finance and EMI guides."],
+  "/web-services": ["Website Services for Businesses | ARF","Business website design and build by ARF: services, terms, locations and portfolio."],
+  "/connect": ["Connect with ARF","Find ASHRAF / ARF on Instagram, Facebook, X, TikTok, YouTube, WhatsApp and more."],
+  "/privacy": ["Privacy Policy | ARF","How this website handles your information."],
+  "/terms": ["Terms & Conditions | ARF","Terms of using this website and its services."],
+  "/admin": ["Admin Access | ARF","Restricted admin sign-in."]
+};
+
+/* ---------- reusable view fragments ---------- */
+function orbs(kind="light"){
+  return `<div class="float o-gold" data-depth="-.10" style="width:54px;height:54px;right:6%;top:8%"><i style="--d:7s"></i></div>
+  <div class="float o-ring" data-depth=".06" style="width:90px;height:90px;left:-24px;top:42%"><i style="--d:9s;--dl:-2s"></i></div>
+  <div class="float o-navy" data-depth="-.05" style="width:34px;height:34px;right:12%;bottom:12%"><i style="--d:8s;--dl:-3s"></i></div>`;
+}
+function bookHTML(b){
+  return `<div class="book" aria-hidden="true"><div class="face" style="background:linear-gradient(155deg,${b.c1},${b.c2})"><span class="a">ARF</span><span class="t">${b.title}</span></div></div>`;
+}
+function postThumb(h){
+  const pal=[["#0a1633","#1a3270","#f5b83d"],["#102250","#2a4a9a","#ffd77a"],["#0a1633","#7a4b00","#f5b83d"]][h%3];
+  return `<svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="pg${h}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${pal[0]}"/><stop offset="1" stop-color="${pal[1]}"/></linearGradient></defs><rect width="320" height="180" fill="url(#pg${h})"/><circle cx="${240-h*30}" cy="60" r="46" fill="${pal[2]}" opacity=".9"/><circle cx="${240-h*30}" cy="60" r="70" fill="none" stroke="${pal[2]}" stroke-opacity=".35"/><path d="M0 150Q80 110 160 140T320 120V180H0z" fill="#fff" opacity=".08"/><path d="M30 40h60M30 54h40" stroke="#fff" stroke-opacity=".4" stroke-width="4" stroke-linecap="round"/></svg>`;
+}
+function postCard(p){
+  return `<a class="card post" href="#/blog/${p.id}" data-tilt><div class="thumb">${postThumb(p.hue)}</div><div class="body"><div class="meta"><span class="tag">${p.tag}</span><span>${p.read}</span>${sample()}</div><h3>${p.title}</h3><p>${p.excerpt}</p><span class="go">Read article ${ic("arrow")}</span></div></a>`;
+}
+function socialList(full){
+  return SOCIALS.map(s=>`<a class="glass" data-tilt href="${s.url}" target="_blank" rel="noopener noreferrer me"><span class="i">${ic(s.id)}</span><span><b>${s.name}</b><small>${s.handle}</small></span></a>`).join("");
+}
+function pageHero(eyebrow,title,sub,extra=""){
+  return `<div class="page-hero dark"><div class="wrap" style="position:relative;z-index:2"><a class="back" href="#/" style="color:#9fb0d9">${ic("chev")} Home</a><br><span class="eyebrow">${eyebrow}</span><h1>${title}</h1><p>${sub}</p>${extra}</div>
+  <div class="float o-gold" data-depth="-.12" style="width:70px;height:70px;right:7%;top:20%"><i style="--d:7s"></i></div>
+  <div class="float o-ring" data-depth=".07" style="width:150px;height:150px;right:-40px;bottom:-30px"><i style="--d:10s"></i></div></div>`;
+}
+
+/* ---------- hero slider artwork (placeholder portraits) ---------- */
+function slideArt(i){
+  const a=[["#1a3270","#0a1633"],["#7a4b00","#0a1633"],["#0f3a6b","#0a1633"],["#2a2a7a","#0a1633"]][i%4];
+  const sx=[150,138,162,150][i%4];
+  return `<svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder portrait artwork">
+  <defs>
+    <linearGradient id="bg${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a[0]}"/><stop offset="1" stop-color="${a[1]}"/></linearGradient>
+    <radialGradient id="gl${i}" cx=".3" cy=".25" r=".8"><stop offset="0" stop-color="#ffe3a0"/><stop offset=".5" stop-color="#f5b83d"/><stop offset="1" stop-color="#c98505"/></radialGradient>
+    <linearGradient id="sh${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a5aa8" stop-opacity=".95"/><stop offset="1" stop-color="#0a1633" stop-opacity=".95"/></linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#bg${i})"/>
+  <g stroke="#fff" stroke-opacity=".06">${Array.from({length:8},(_,k)=>`<path d="M0 ${k*55}H300"/><path d="M${k*45} 0V400"/>`).join("")}</g>
+  <circle cx="${70+i*40}" cy="${90+(i%2)*30}" r="${44+i*5}" fill="url(#gl${i})" opacity=".95"/>
+  <circle cx="${70+i*40}" cy="${90+(i%2)*30}" r="${78+i*6}" fill="none" stroke="#f5b83d" stroke-opacity=".4"/>
+  <circle cx="${260-i*35}" cy="${300-i*20}" r="${110}" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="22"/>
+  <path d="M${sx-118} 410C${sx-118} 300 ${sx-70} 262 ${sx} 262S${sx+118} 300 ${sx+118} 410z" fill="url(#sh${i})"/>
+  <path d="M${sx-26} 262l26 44 26-44" fill="none" stroke="#f5b83d" stroke-width="3" stroke-linejoin="round" opacity=".9"/>
+  <rect x="${sx-14}" y="222" width="28" height="44" rx="12" fill="#2a4a9a"/>
+  <ellipse cx="${sx}" cy="190" rx="44" ry="54" fill="#2f4f9c"/>
+  <path d="M${sx-44} 182C${sx-44} 140 ${sx-14} 130 ${sx+10} 132 ${sx+36} 134 ${sx+46} 156 ${sx+44} 182 ${sx+30} 160 ${sx} 154 ${sx-44} 182z" fill="#0a1633"/>
+  <path d="M${sx+42} 160C${sx+50} 190 ${sx+40} 230 ${sx+20} 240" fill="none" stroke="#f5b83d" stroke-opacity=".7" stroke-width="2.500"/>
+  <circle cx="${40+i*50}" cy="${360-i*10}" r="5" fill="#f5b83d"/><circle cx="${250-i*30}" cy="150" r="3.500" fill="#fff" opacity=".7"/>
+  </svg>`;
+}
+function sliderHTML(){
+  const slides = IMAGES.map((im,i)=>`<div class="slide" role="group" aria-roledescription="slide" aria-label="${i+1} of ${IMAGES.length}">${
+    im.src ? `<img src="${im.src}" alt="${im.alt||""}" ${i?'loading="lazy"':'fetchpriority="high"'} decoding="async">` : slideArt(i)
+  }${(!im.src && SHOW_SAMPLE_TAGS)?`<span class="sample slot" style="background:rgba(255,255,255,.14);color:#e7ecfa">PHOTO SLOT ${i+1}</span>`:""}</div>`).join("");
+  const dots = IMAGES.map((_,i)=>`<button class="dot" aria-label="Go to slide ${i+1}" ${i?"":'aria-current="true"'}></button>`).join("");
+  return `<div class="slider-box stage" data-depth="0">
+    <div class="float o-gold" style="width:46px;height:46px;left:-14px;top:12%;z-index:5"><i style="--d:6s"></i></div>
+    <div class="float o-ring" style="width:84px;height:84px;right:-22px;bottom:22%;z-index:5"><i style="--d:8s;--dl:-2s"></i></div>
+    <div class="slider" id="slider" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Photos of Ashraf" data-tilt3>
+      <div class="track">${slides}</div>
+      <button class="arrow l" aria-label="Previous photo">${ic("chev").replace('<svg','<svg style="transform:scaleX(-1)"')}</button>
+      <button class="arrow r" aria-label="Next photo">${ic("chev")}</button>
+      <a class="slider-over" href="${INSTAGRAM_MAIN}" target="_blank" rel="noopener noreferrer" aria-label="ASHRAF/ARF, ASHRAF/ARF for you CEO - open Instagram">
+        <b>ASHRAF/ARF ${ic("arrow")}</b><span>ASHRAF/ARF for you CEO</span>
+      </a>
+      <div class="sl-ctl">${dots}<button class="pp" aria-label="Pause slideshow">${ic("pause")}</button></div>
+    </div>
+  </div>`;
+}
+
+/* ---------- views ---------- */
+const V = {};
+V["/"] = () => `
+<section class="hero">
+  <div class="float o-gold" data-depth="-.14" style="width:56px;height:56px;right:8%;top:86%"><i style="--d:8s"></i></div>
+  <div class="float o-glass" data-depth=".08" style="width:90px;height:60px;right:-20px;top:10%;transform:rotate(14deg)"><i style="--d:10s"></i></div>
+  <div class="wrap">
+    <div class="hero-copy rv">
+      <span class="eyebrow">Advanced Research &amp; Future</span>
+      <h1>Hello, I'm <em>ASHRAF</em><br>the mind behind ARF.</h1>
+      <p>Author, brand creator and website builder. Research-led ideas, built for what comes next.</p>
+      <div class="row"><a class="btn btn-gold" href="#/web-services">Build with ARF ${ic("arrow")}</a><a class="btn btn-ghost" href="#/contact">Contact</a></div>
+    </div>
+    ${sliderHTML()}
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="bio rv" id="bio">
+      <span class="eyebrow">Bio</span>
+      <p id="bio-p">${BIO_SHORT}</p>
+      <p class="more" style="margin-top:-4px;display:none" id="bio-more">${BIO_LONG.slice(1).join(" ")}</p>
+      <div class="row"><button class="btn btn-navy" id="bio-btn" aria-expanded="false">See More</button><a class="btn btn-ghost" href="#/about" id="bio-full" hidden>Full profile ${ic("arrow")}</a></div>
+    </div>
+    <div class="link-cards stage rv">
+      <a class="glass lcard" href="#/author" data-tilt><span class="ic">${ic("book")}</span><h3>Author Profile &amp; Bio</h3><p>Meet the writer and browse the book publications.</p><span class="go">Open profile ${ic("arrow")}</span></a>
+      <a class="glass lcard" href="#/web-services" data-tilt><span class="ic">${ic("globe")}</span><h3>Website Building for Businesses</h3><p>Services, terms, locations and live portfolio previews.</p><span class="go">See services ${ic("arrow")}</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="books">
+  <div class="float o-gold" data-depth="-.1" style="width:80px;height:80px;right:4%;top:10%;opacity:.9"><i style="--d:9s"></i></div>
+  <div class="float o-ring" data-depth=".07" style="width:130px;height:130px;left:-50px;bottom:6%"><i style="--d:11s"></i></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Written Books</span><h2>Books by Ashraf</h2></div>
+      <div class="rail-ctl"><button class="rbtn" id="rp" aria-label="Previous books">${ic("chev").replace('<svg','<svg style="transform:scaleX(-1)"')}</button><button class="rbtn" id="rn" aria-label="Next books">${ic("chev")}</button></div>
+    </div>
+    <div class="rail-wrap rv"><div class="rail" id="rail" tabindex="0" role="region" aria-label="Books carousel, scroll sideways">
+      ${BOOKS.map(b=>`<article class="glass book-card" data-tilt>${bookHTML(b)}<span class="tag">${b.topic}</span> ${sample()}<h3 style="margin-top:8px">${b.title}</h3><p>${b.blurb}</p><a class="btn btn-gold" href="#/author">Details</a></article>`).join("")}
+    </div></div>
+    <p class="hint">Swipe or use the arrows &rarr;</p>
+  </div>
+</section>
+
+<section id="blogs">
+  <div class="wrap">
+    <div class="sec-head rv"><div><span class="eyebrow">Blogs</span><h2>Articles &amp; Insights</h2></div></div>
+    <div class="grid g3 stage rv">${BLOGS.map(postCard).join("")}</div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap"><div class="glass rv" style="padding:24px;display:grid;gap:12px;overflow:hidden"><span class="eyebrow" style="color:var(--gold)">Let's connect</span><h2 style="color:#fff">Find ARF across the web</h2><p>Follow along on social, or send a message directly.</p><div class="row"><a class="btn btn-gold" href="#/connect">Connect with ARF</a><a class="btn btn-ghost" style="border-color:rgba(255,255,255,.4);color:#fff" href="${wa('Hello Ashraf, I found your website.')}" target="_blank" rel="noopener noreferrer">WhatsApp ${ic("whatsapp")}</a></div></div></div>
+</section>`;
+
+V["/about"] = () => `
+${pageHero("About Ashraf","The mind behind ARF","Advanced Research & Future: a brand built on curiosity, clarity and building for what comes next.")}
+<section><div class="wrap two">
+  <div class="prose rv">${BIO_LONG.map(t=>`<p>${t}</p>`).join("")}
+    <div class="row" style="margin-top:16px"><a class="btn btn-gold" href="#/author">Author profile</a><a class="btn btn-ghost" href="#/contact">Contact Ashraf</a></div></div>
+  <div class="stage rv" style="display:grid;gap:12px">
+    <div class="glass tile" data-tilt><span class="ic" style="background:rgba(245,184,61,.2);color:var(--gold)">${ic("search")}</span><h3>Advanced</h3><p>Careful, modern thinking applied to every project.</p></div>
+    <div class="glass tile" data-tilt><span class="ic" style="background:rgba(245,184,61,.2);color:var(--gold)">${ic("book")}</span><h3>Research</h3><p>Learn first, then write, design and build.</p></div>
+    <div class="glass tile" data-tilt><span class="ic" style="background:rgba(245,184,61,.2);color:var(--gold)">${ic("spark")}</span><h3>Future</h3><p>Ideas and websites made to stay useful tomorrow.</p></div>
+  </div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="eyebrow">Explore</span><h2>What ARF does</h2></div></div>
+  <div class="link-cards stage rv">
+    <a class="glass lcard" href="#/author" data-tilt><span class="ic">${ic("book")}</span><h3>Books &amp; writing</h3><p>Finance and EMI guides and more.</p><span class="go">Author profile ${ic("arrow")}</span></a>
+    <a class="glass lcard" href="#/web-services" data-tilt><span class="ic">${ic("globe")}</span><h3>Websites for businesses</h3><p>Fast, clear and mobile-first.</p><span class="go">Services ${ic("arrow")}</span></a>
+  </div></div></section>`;
+
+V["/author"] = () => `
+${pageHero("Author Profile","Author &amp; Writer","Books and writing by Ashraf, making money topics such as finance and EMIs clear and approachable.")}
+<section><div class="wrap">
+  <div class="bio rv"><span class="eyebrow">Bio</span><p style="display:block;-webkit-line-clamp:unset">${BIO_LONG.join(" ")}</p></div>
+</div></section>
+<section class="dark" style="padding-top:44px"><div class="wrap" style="position:relative;z-index:2">
+  <div class="sec-head rv"><div><span class="eyebrow">Publications</span><h2>Book publications</h2></div>${sample()}</div>
+  <div class="grid stage" style="gap:16px">${BOOKS.map(b=>`<article class="glass rv" data-tilt style="padding:18px;display:grid;grid-template-columns:116px 1fr;gap:16px;align-items:center"><div style="perspective:700px">${bookHTML(b).replace('class="book"','class="book" style="width:100px;height:140px;margin:0"')}</div><div><span class="tag">${b.topic}</span><h3 style="margin:6px 0 4px">${b.title}</h3><p style="font-size:.86rem;margin-bottom:10px">${b.blurb}</p>${b.link?`<a class="btn btn-gold" href="${b.link}" target="_blank" rel="noopener noreferrer">Get the book</a>`:`<a class="btn btn-gold" href="${wa('Hi Ashraf, I am interested in your book: '+b.title)}" target="_blank" rel="noopener noreferrer">Ask about this book</a>`}</div></article>`).join("")}</div>
+</div></section>
+<section><div class="wrap"><div class="sec-head rv"><div><span class="eyebrow">Writing</span><h2>Latest articles</h2></div><a class="btn btn-ghost" href="#/">All</a></div>
+<div class="grid g3 stage rv">${BLOGS.slice(0,3).map(postCard).join("")}</div></div></section>`;
+
+V["/web-services"] = () => `
+${pageHero("Services / Businesses","Websites for Businesses","Fast, clean and mobile-first websites built with research behind every decision.",`<div class="row" style="margin-top:16px"><a class="btn btn-gold" href="${wa('Hi Ashraf, I would like a website for my business.')}" target="_blank" rel="noopener noreferrer">Start on WhatsApp ${ic("whatsapp")}</a><a class="btn btn-ghost" href="#/contact">Contact form</a></div>`)}
+<section><div class="wrap">
+  <div class="sec-head rv"><div><span class="eyebrow">What I build</span><h2>Services</h2></div>${sample()}</div>
+  <div class="grid g3 stage rv">${SERVICES.map(s=>`<div class="card tile" data-tilt><span class="ic">${ic(s.icon)}</span><h3>${s.t}</h3><p>${s.d}</p></div>`).join("")}</div>
+</div></section>
+<section style="padding-top:0"><div class="wrap">
+  <div class="sec-head rv"><div><span class="eyebrow">How it works</span><h2>Simple process</h2></div></div>
+  <div class="steps grid g3 rv">${STEPS.map(s=>`<div class="card tile"><h3>${s.t}</h3><p>${s.d}</p></div>`).join("")}</div>
+</div></section>
+<section class="dark"><div class="wrap two" style="position:relative;z-index:2">
+  <div class="rv"><span class="eyebrow">Terms &amp; conditions</span><h2 style="margin:6px 0 14px">Working terms ${sample()}</h2><ul class="list">${WEB_TERMS.map(t=>`<li>${t}</li>`).join("")}</ul></div>
+  <div class="rv"><span class="eyebrow">Sales locations</span><h2 style="margin:6px 0 14px">Where I work ${sample()}</h2><div style="display:grid;gap:10px" class="stage">${SALES_LOCATIONS.map(l=>`<div class="glass tile" data-tilt style="display:flex;gap:12px;align-items:flex-start"><span style="color:var(--gold);flex:none;width:22px;height:22px">${ic("pin")}</span><div><h3>${l.t}</h3><p style="font-size:.88rem">${l.d}</p></div></div>`).join("")}</div></div>
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head rv"><div><span class="eyebrow">Portfolio</span><h2>Live previews</h2></div>${sample()}</div>
+  <div class="grid g3 stage rv">${PORTFOLIO.map((p,i)=>`<div class="card post" data-tilt><div class="mock"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="320" height="200" fill="#e9eef8"/><rect x="0" y="0" width="320" height="22" fill="#0a1633"/><circle cx="12" cy="11" r="3" fill="#f5b83d"/><circle cx="23" cy="11" r="3" fill="#fff" opacity=".5"/><rect x="40" y="6" width="150" height="10" rx="5" fill="#fff" opacity=".18"/><rect x="18" y="40" width="130" height="14" rx="4" fill="#0a1633"/><rect x="18" y="62" width="96" height="8" rx="4" fill="#51607f" opacity=".5"/><rect x="18" y="82" width="64" height="20" rx="10" fill="${p.c}"/><rect x="170" y="38" width="132" height="92" rx="10" fill="${p.c}" opacity=".85"/><rect x="18" y="130" width="86" height="54" rx="8" fill="#fff"/><rect x="117" y="130" width="86" height="54" rx="8" fill="#fff"/><rect x="216" y="140" width="86" height="44" rx="8" fill="#fff"/></svg></div><div class="body"><span class="tag" style="align-self:flex-start">${p.kind}</span><h3>${p.name}</h3>${p.url?`<a class="btn btn-navy" style="align-self:flex-start" href="${p.url}" target="_blank" rel="noopener noreferrer">Visit live site ${ic("arrow")}</a>`:`<span class="sample" style="align-self:flex-start">LINK COMING SOON</span>`}</div></div>`).join("")}</div>
+</div></section>`;
+
+V["/connect"] = () => `
+${pageHero("Connect with ARF","Let's stay connected","Find ASHRAF / ARF on every platform, or message directly.")}
+<section class="dark" style="padding-top:36px"><div class="wrap" style="position:relative;z-index:2"><div class="soc stage rv">${socialList(true)}</div></div></section>
+<section><div class="wrap two">
+  <div class="card tile rv"><span class="ic">${ic("whatsapp")}</span><h3>Fastest reply</h3><p style="margin-bottom:12px">Message Ashraf on WhatsApp.</p><a class="btn btn-gold" href="${wa('Hello Ashraf!')}" target="_blank" rel="noopener noreferrer">Open WhatsApp</a></div>
+  <div class="card tile rv"><span class="ic">${ic("email")}</span><h3>Prefer email?</h3><p style="margin-bottom:12px">${EMAIL}</p><a class="btn btn-navy" href="mailto:${EMAIL}">Send email</a></div>
+</div></section>`;
+
+V["/contact"] = () => `
+${pageHero("Contact with Ashraf","Say hello","Tell me what you need. Your message opens in WhatsApp or your email app, ready to send.")}
+<section><div class="wrap two">
+  <form class="card panel rv" id="cform" novalidate>
+    <label>Your name<input name="name" autocomplete="name" required placeholder="e.g. Sara"></label>
+    <label><span>Your email <span style="font-weight:500;color:var(--muted)">(optional)</span></span><input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>Topic<select name="topic"><option>Website for my business</option><option>Book enquiry</option><option>Collaboration</option><option>Something else</option></select></label>
+    <label>Message<textarea name="msg" required placeholder="Write your message..."></textarea></label>
+    <div class="row"><button class="btn btn-gold" type="submit" data-via="wa">Send on WhatsApp ${ic("whatsapp")}</button><button class="btn btn-ghost" type="submit" data-via="mail">Send by email ${ic("email")}</button></div>
+    <div class="status" id="cstatus" role="status" aria-live="polite"></div>
+  </form>
+  <div class="rv" style="display:grid;gap:12px;align-content:start" >
+    <div class="glass tile stage" data-tilt style="padding:20px"><h3>Direct contact</h3><p style="margin:4px 0 14px">Prefer to skip the form?</p><div class="row"><a class="btn btn-gold" href="${wa('Hello Ashraf!')}" target="_blank" rel="noopener noreferrer">WhatsApp ${ic("whatsapp")}</a><a class="btn btn-ghost" style="border-color:rgba(255,255,255,.4);color:#fff" href="mailto:${EMAIL}">${EMAIL}</a></div></div>
+    <div class="card tile"><h3>Social</h3><p style="margin-bottom:10px">Follow and message on Instagram.</p><a class="btn btn-navy" href="${INSTAGRAM_MAIN}" target="_blank" rel="noopener noreferrer">Instagram ${ic("instagram")}</a></div>
+  </div>
+</div></section>`;
+
+const LEGAL = (h,intro,items) => `${pageHero("Legal",h,intro)}<section><div class="wrap"><div class="prose rv">${items.map(([t,b])=>`<h2>${t}</h2><p>${b}</p>`).join("")}<p style="font-size:.84rem">This is general sample text. Please review and adapt it to your needs before relying on it.</p></div></div></section>`;
+V["/privacy"] = () => LEGAL("Privacy Policy","How this website handles your information.",[
+  ["Information we collect","This website does not require an account and has no built-in database. If you use the contact form, the details you type are placed into a WhatsApp or email message that you send yourself."],
+  ["How information is used","Messages you send are used only to reply to you. Your details are not sold or shared for advertising."],
+  ["Third-party links","Links to social platforms, WhatsApp and other sites are governed by their own privacy policies."],
+  ["Cookies and analytics","This site does not set tracking cookies of its own. If analytics are added later, this page will be updated."],
+  ["Your choices","You can ask for a message of yours to be deleted by writing to "+EMAIL+"."],
+  ["Contact","Questions about privacy can be sent to "+EMAIL+"."]
+]);
+V["/terms"] = () => LEGAL("Terms &amp; Conditions","The basics of using this website and its services.",[
+  ["Use of this site","Content on this website is provided for general information. You agree to use it lawfully and respectfully."],
+  ["Intellectual property","Text, designs, books and images on this site belong to ASHRAF / ARF unless stated otherwise. Please do not copy or reuse them without permission."],
+  ["Services","Website projects and other services are agreed individually in writing, including scope, timelines and payment."],
+  ["No financial advice","Articles and books about finance and EMIs are educational and are not personal financial advice. Please consult a qualified professional for your situation."],
+  ["Limitation","The site is provided as is. ARF is not liable for losses arising from use of the information provided."],
+  ["Changes","These terms may be updated from time to time. Continued use means you accept the current version."]
+]);
+
+V["/admin"] = () => `
+${pageHero("Admin Access","Admin sign-in","Restricted area.")}
+<section><div class="wrap"><div class="card panel rv" style="max-width:460px;margin-inline:auto">
+  <div class="lockbadge">${ic("lock")}</div>
+  <h2 style="font-size:1.3rem">Restricted access</h2>
+  <p style="margin:4px 0 16px">Only the site owner can sign in here.</p>
+  <form id="aform" novalidate>
+    <label>Admin email<input name="email" type="email" autocomplete="email" inputmode="email" required placeholder="Enter admin email"></label>
+    <button class="btn btn-navy" type="submit" style="justify-self:start">Continue ${ic("arrow")}</button>
+    <div class="status" id="astatus" role="status" aria-live="polite"></div>
+  </form>
+  <div id="apanel" hidden></div>
+</div></div></section>`;
+
+V["/blog"] = (id) => {
+  const p = BLOGS.find(b=>b.id===id);
+  if(!p) return V["404"]();
+  const more = BLOGS.filter(b=>b.id!==id).slice(0,3);
+  return `${pageHero(p.tag+" &middot; "+p.read,p.title,p.excerpt)}
+  <section><div class="wrap"><div class="prose rv">${p.body.map(t=>`<p>${t}</p>`).join("")}<div class="row" style="margin-top:18px"><a class="btn btn-gold" href="#/">All articles</a><a class="btn btn-ghost" href="#/contact">Ask a question</a></div></div></div></section>
+  <section style="padding-top:0"><div class="wrap"><div class="sec-head rv"><div><span class="eyebrow">Keep reading</span><h2>More articles</h2></div></div><div class="grid g3 stage rv">${more.map(postCard).join("")}</div></div></section>`;
+};
+V["404"] = () => `${pageHero("404","Page not found","That page does not exist.",`<div class="row" style="margin-top:14px"><a class="btn btn-gold" href="#/">Back to home</a></div>`)}`;
+
+/* ---------- footer ---------- */
+function footerHTML(){
+  return `<div class="wrap">
+    <a class="logo" href="#/" aria-label="ASHRAF - home"><i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#f5b83d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19L12 5l7 14M8.500 14h7"/></svg></i>ASHRAF</a>
+    <p>ARF &middot; Advanced Research &amp; Future</p>
+    <nav class="fnav" aria-label="Footer"><a href="#/privacy">Privacy Policy</a><a href="#/terms">Terms &amp; Conditions</a><a href="#/">Home</a><a href="#/contact">Contact</a></nav>
+    <div class="fsoc">${SOCIALS.map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer me" aria-label="${s.name}: ${s.handle}" title="${s.name}">${ic(s.id)}</a>`).join("")}</div>
+    <div class="copy">&copy; <span id="yr"></span> All Rights Reserved by ARF / ASHRAF</div></div>`;
+}
+
+/* ---------- behaviours ---------- */
+function reveal(root){
+  const els=$$(".rv",root);
+  if(RM||!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px",threshold:.08});
+  els.forEach(e=>io.observe(e)); cleanups.push(()=>io.disconnect());
+}
+function tilt(root){
+  if(RM) return;
+  $$("[data-tilt]",root).forEach(el=>{
+    let raf=0,rx=0,ry=0;
+    const apply=()=>{raf=0;el.style.transform=`perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`};
+    const set=()=>{if(!raf)raf=requestAnimationFrame(apply)};
+    el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();ry=((e.clientX-r.left)/r.width-.5)*9;rx=-((e.clientY-r.top)/r.height-.5)*9;set()});
+    ["pointerleave","pointercancel","pointerup"].forEach(t=>el.addEventListener(t,()=>{rx=ry=0;set()}));
+  });
+}
+/* parallax: gentle depth on floating shapes, transform only */
+let pxEls=[],pxRaf=0;
+function parallax(root){
+  pxEls=RM?[]:$$(".float[data-depth]",root);
+  pxEls.forEach(el=>el.style.setProperty("--ty","0px"));
+  const run=()=>{pxRaf=0;const y=window.scrollY;pxEls.forEach(el=>{const d=parseFloat(el.dataset.depth)||0;const b=el.getBoundingClientRect();if(b.bottom<-200||b.top>innerHeight+200)return;el.style.transform=(el.style.transform.replace(/translate3d\([^)]*\)\s*/,""));el.style.translate=`0 ${(y*d).toFixed(1)}px`})};
+  const on=()=>{if(!pxRaf)pxRaf=requestAnimationFrame(run)};
+  addEventListener("scroll",on,{passive:true}); on();
+  cleanups.push(()=>removeEventListener("scroll",on));
+}
+function initBio(){
+  const btn=$("#bio-btn"); if(!btn) return;
+  btn.onclick=()=>{
+    const box=$("#bio"),open=!box.classList.contains("open");
+    box.classList.toggle("open",open);
+    $("#bio-p").textContent=open?BIO_LONG.join(" "):BIO_SHORT;
+    $("#bio-more").style.display="none";
+    btn.textContent=open?"See Less":"See More"; btn.setAttribute("aria-expanded",open);
+    $("#bio-full").hidden=!open;
+  };
+}
+function initSlider(){
+  const s=$("#slider"); if(!s) return;
+  const track=$(".track",s),n=IMAGES.length,dots=$$(".dot",s),pp=$(".pp",s);
+  let i=0,dx=0,sx=0,sy=0,down=false,moved=false,suppress=false,paused=RM,hover=false,w=1;
+  const go=k=>{i=(k+n)%n;track.style.transform=`translate3d(${-i*100}%,0,0)`;dots.forEach((d,j)=>d.setAttribute("aria-current",j===i))};
+  dots.forEach((d,j)=>d.onclick=()=>go(j));
+  $(".arrow.l",s).onclick=()=>go(i-1); $(".arrow.r",s).onclick=()=>go(i+1);
+  s.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(i-1);if(e.key==="ArrowRight")go(i+1)});
+  const setPP=()=>{pp.innerHTML=ic(paused?"play":"pause");pp.setAttribute("aria-label",paused?"Play slideshow":"Pause slideshow")};
+  pp.onclick=()=>{paused=!paused;setPP()}; setPP();
+  s.addEventListener("pointerdown",e=>{if(e.target.closest(".dot,.pp,.arrow"))return;down=true;moved=false;sx=e.clientX;sy=e.clientY;dx=0;w=s.clientWidth;s.dataset.id=e.pointerId});
+  s.addEventListener("pointermove",e=>{
+    if(!down)return; const mx=e.clientX-sx,my=e.clientY-sy;
+    if(!moved){ if(Math.abs(mx)>7&&Math.abs(mx)>Math.abs(my)){moved=true;s.classList.add("dragging");try{s.setPointerCapture(e.pointerId)}catch(_){}} else return }
+    dx=mx; track.style.transform=`translate3d(calc(${-i*100}% + ${dx}px),0,0)`;
+  });
+  const end=()=>{ if(!down)return; down=false; s.classList.remove("dragging");
+    if(moved){ suppress=true; setTimeout(()=>suppress=false,60); if(Math.abs(dx)>w*.16) go(dx<0?i+1:i-1); else go(i) } };
+  s.addEventListener("pointerup",end); s.addEventListener("pointercancel",end);
+  s.addEventListener("click",e=>{if(suppress){e.preventDefault();e.stopPropagation()}},true);
+  s.addEventListener("pointerenter",e=>{if(e.pointerType==="mouse")hover=true}); s.addEventListener("pointerleave",()=>hover=false);
+  s.addEventListener("focusin",()=>hover=true); s.addEventListener("focusout",()=>hover=false);
+  const t=setInterval(()=>{if(!paused&&!hover&&!down&&!document.hidden)go(i+1)},4800);
+  cleanups.push(()=>clearInterval(t));
+  /* subtle 3D tilt of the whole photo frame on desktop pointer */
+  if(!RM&&matchMedia("(hover:hover)").matches){
+    const box=s.parentElement; let raf=0,rx=0,ry=0;
+    const ap=()=>{raf=0;s.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`};
+    box.addEventListener("pointermove",e=>{const r=box.getBoundingClientRect();ry=((e.clientX-r.left)/r.width-.5)*8;rx=-((e.clientY-r.top)/r.height-.5)*8;if(!raf)raf=requestAnimationFrame(ap)});
+    box.addEventListener("pointerleave",()=>{rx=ry=0;if(!raf)raf=requestAnimationFrame(ap)});
+    s.style.transition="transform .3s ease-out";
+  }
+}
+function initRail(){
+  const r=$("#rail"); if(!r) return;
+  const step=()=>{const c=r.firstElementChild;return c?c.getBoundingClientRect().width+16:240};
+  $("#rp").onclick=()=>r.scrollBy({left:-step(),behavior:RM?"auto":"smooth"});
+  $("#rn").onclick=()=>r.scrollBy({left:step(),behavior:RM?"auto":"smooth"});
+  r.addEventListener("keydown",e=>{if(e.key==="ArrowRight")$("#rn").click();if(e.key==="ArrowLeft")$("#rp").click()});
+  let down=false,sx=0,sl=0,moved=false;
+  r.addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse")return;down=true;moved=false;sx=e.clientX;sl=r.scrollLeft});
+  addEventListener("pointermove",mv);
+  function mv(e){if(!down)return;const d=e.clientX-sx;if(Math.abs(d)>5){moved=true;r.classList.add("grab")}if(moved)r.scrollLeft=sl-d}
+  const up=()=>{if(!down)return;down=false;r.classList.remove("grab")};
+  addEventListener("pointerup",up);
+  r.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+  cleanups.push(()=>{removeEventListener("pointermove",mv);removeEventListener("pointerup",up)});
+}
+function initContact(){
+  const f=$("#cform"); if(!f) return;
+  let via="wa";
+  $$("button[type=submit]",f).forEach(b=>b.addEventListener("click",()=>via=b.dataset.via));
+  f.addEventListener("submit",e=>{
+    e.preventDefault();
+    const d=new FormData(f),name=(d.get("name")||"").trim(),msg=(d.get("msg")||"").trim(),em=(d.get("email")||"").trim(),topic=d.get("topic");
+    const st=$("#cstatus");
+    if(!name||!msg){st.className="status err";st.textContent="Please add your name and a short message.";return}
+    const text=`Hello Ashraf, I'm ${name}.\nTopic: ${topic}\n\n${msg}${em?`\n\nReply to: ${em}`:""}`;
+    if(via==="wa"){ window.open(wa(text),"_blank","noopener"); st.textContent="Opening WhatsApp..."; }
+    else { location.href=`mailto:${EMAIL}?subject=${encodeURIComponent(topic+" - "+name)}&body=${encodeURIComponent(text)}`; st.textContent="Opening your email app..."; }
+    st.className="status ok";
+  });
+}
+/* ---------- ADMIN GATE ---------- */
+/* IMPORTANT: this is only a front-end gate. A static website cannot keep anything truly secret,
+   and anyone can read this code. Real protection needs a backend sign-in.
+   >>> HOOK: replace authenticateAdmin() with a real call, e.g. Firebase Auth / Google Sign-In,
+       then verify the signed-in email on the SERVER against an allowlist (only ADMIN_EMAIL),
+       and only serve admin data from that server. Never put passwords or secrets in this file. */
+async function authenticateAdmin(email){
+  return { ok: email.trim().toLowerCase() === ADMIN_EMAIL, backendConnected:false };
+}
+function initAdmin(){
+  const f=$("#aform"); if(!f) return;
+  f.addEventListener("submit",async e=>{
+    e.preventDefault();
+    const em=f.email.value.trim(),st=$("#astatus");
+    if(!/^\S+@\S+\.\S+$/.test(em)){st.className="status err";st.textContent="Please enter a valid email address.";return}
+    const res=await authenticateAdmin(em);
+    if(!res.ok){st.className="status err";st.textContent="Access restricted. This area is only for the site owner.";return}
+    st.textContent="";
+    $("#apanel").hidden=false; f.hidden=true;
+    $("#apanel").innerHTML=`<div class="status ok" style="margin-bottom:10px">Email recognised.</div><div class="notice">Secure sign-in is not connected yet. This page is a front-end gate only. A backend login (for example Google sign-in with a server-side allowlist) must be added before any admin tools are shown.</div><div class="row" style="margin-top:14px"><a class="btn btn-gold" href="#/">Back to home</a></div>`;
+  });
+}
+
+/* ---------- menu ---------- */
+const menuList=$("#menu-list");
+menuList.innerHTML=NAV.map(n=>`<li><a href="#${n.r}" data-r="${n.r}">${n.label}${n.icon?ic(n.icon):(n.tag?`<small>${n.tag}</small>`:ic("arrow"))}</a></li>`).join("");
+const burger=$("#burger"),menu=$("#menu");
+function setMenu(open){
+  document.body.classList.toggle("menu-open",open); document.body.classList.toggle("lock",open);
+  burger.setAttribute("aria-expanded",open); burger.setAttribute("aria-label",open?"Close menu":"Open menu");
+  menu.setAttribute("aria-hidden",!open);
+  menu.inert=!open; $("#app").inert=open; $("#foot").inert=open;
+  if(open) setTimeout(()=>$("#menu a").focus({preventScroll:true}),60); else if(document.activeElement&&menu.contains(document.activeElement)) burger.focus();
+}
+menu.inert=true;
+burger.onclick=()=>setMenu(!document.body.classList.contains("menu-open"));
+addEventListener("keydown",e=>{if(e.key==="Escape"&&document.body.classList.contains("menu-open")){setMenu(false);burger.focus()}});
+menu.addEventListener("click",e=>{if(e.target.closest("a"))setMenu(false)});
+
+/* ---------- router ---------- */
+function parse(){
+  const h=(location.hash||"#/").replace(/^#/,"")||"/";
+  const parts=h.split("/").filter(Boolean);
+  if(parts[0]==="blog"&&parts[1]) return {key:"/blog",arg:parts[1],path:"/blog/"+parts[1]};
+  const key="/"+(parts[0]||"");
+  return V[key]&&key!=="/blog"?{key,path:key}:{key:"404",path:"/404"};
+}
+let first=true;
+function render(){
+  cleanups.forEach(f=>f()); cleanups=[];
+  const r=parse(), app=$("#app");
+  app.innerHTML=`<div class="view">${V[r.key](r.arg)}</div>`;
+  const m=META[r.key]||(r.key==="/blog"?[(BLOGS.find(b=>b.id===r.arg)||{}).title+" | ARF","Article by Ashraf / ARF."]:["Page not found | ARF",""]);
+  document.title=m[0]; $('meta[name="description"]').content=m[1];
+  $$("#menu a").forEach(a=>a.getAttribute("data-r")===r.key?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  scrollTo({top:0,behavior:"instant"});
+  if(!first) app.focus({preventScroll:true}); first=false;
+  reveal(app); tilt(app); parallax(app); initBio(); initSlider(); initRail(); initContact(); initAdmin();
+}
+$("#foot").innerHTML=footerHTML(); $("#yr").textContent=new Date().getFullYear();
+addEventListener("hashchange",render);
+render();
+</script>
+</body>
+</html>
